@@ -93,7 +93,7 @@ const Quiz = () => {
                 )}
             </main>
             <footer className="quiz-footer">
-                <p>© 2024 Hangul Learning. All rights reserved.</p>
+                <p>© 2024 Hangul Learning. All rights reserved. </p>
             </footer>
         </div>
     );
