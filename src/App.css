@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  height: 100vh;
   /* Prevent horizontal scrolling */
 }
 
@@ -351,8 +352,22 @@ a:active {
 
 @media (max-width: 600px) {
   .home h1 {
-    font-size: 2rem;
+    font-size: 1rem;
     /* Smaller size for mobile */
+  }
+
+  body {
+    height: fit-content;
+    overflow: hidden;
+  }
+
+  .quiz-container {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .quiz-footer {
+    font-size: 20px;
   }
 
   .quiz-header {
@@ -362,6 +377,8 @@ a:active {
     width: 100%;
     text-align: center;
     padding: 5px;
+    font-size: 12px;
+    height: 80px;
     /* Reduced padding for mobile */
   }
 
@@ -373,6 +390,11 @@ a:active {
   .home p {
     font-size: 1rem;
     /* Smaller size for mobile */
+  }
+
+  .feedback {
+    font-size: 15px;
+    font-weight: bold;
   }
 
   .option-button,
