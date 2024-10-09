@@ -132,9 +132,9 @@ const Quiz = () => {
                     <p>Loading questions...</p>
                 ) : (
                     finished ? (
-                        <div>
+                        <div class='res'>
                             <Results score={score} total={shuffledQuestions.length} />
-                            <button onClick={restartQuiz} className="restart-button">Restart Quiz</button>
+                            <button onClick={restartQuiz} className="restart-button">♻️ Restart Quiz</button>
                         </div>
                     ) : (
                         <div className="quiz-content">
