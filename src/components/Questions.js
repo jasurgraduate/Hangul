@@ -40,7 +40,7 @@ export const questions = [
     { question: "What is the English letter for 'ㅟ'?", answer: "wi", options: ["wi", "eu", "i", "o"] },
     { question: "What is the English letter for 'ㅢ'?", answer: "ui", options: ["ui", "u", "i", "a"] },
 
-    // Common Syllables
+    // Common Syllables #
     { question: "What is the English letter for '가'?", answer: "ga", options: ["ga", "na", "da", "ma"] },
     { question: "What is the English letter for '나'?", answer: "na", options: ["ga", "na", "da", "ba"] },
     { question: "What is the English letter for '다'?", answer: "da", options: ["ja", "da", "sa", "ma"] },

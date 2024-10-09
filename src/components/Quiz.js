@@ -7,7 +7,7 @@ import { questions } from './Questions'; // Adjust the path if necessary
 const motivationalMessages = [
     "Awesome job! You're a Hangul master! 😸",
     "Keep it up! You're doing great! 🎸",
-    "You're on fire! Keep learning! 🔥",
+    "You're on fire! Keep learning it! 🔥",
     "Fantastic! Hangul will be second nature to you! 🐼",
 ];
 

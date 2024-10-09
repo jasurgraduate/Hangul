@@ -240,7 +240,7 @@ body {
 
 @media (max-width: 600px) {
 
-  /* Mobile screen adjustments */
+  /* Mobile screen  */
   .home h1 {
     font-size: 2.5rem;
     /* Responsive heading size */
