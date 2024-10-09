@@ -13,7 +13,7 @@ export const questions = [
     { question: "What is the English letter for 'ㅊ'?", answer: "ch", options: ["p", "ch", "k", "t"] },
     { question: "What is the English letter for 'ㅋ'?", answer: "k", options: ["k", "h", "m", "s"] },
     { question: "What is the English letter for 'ㅌ'?", answer: "t", options: ["t", "p", "r", "d"] },
-    { question: "What is the English letter for 'ㅍ'?", answer: "p", options: ["b", "t", "p", "m"] },
+    { question: "What is the English letter for 'ㅍ'?", answer: "b/p", options: ["h", "t/d", "b/p", "m"] },
     { question: "What is the English letter for 'ㅎ'?", answer: "h", options: ["h", "n", "g", "j"] },
 
     // Basic Vowels

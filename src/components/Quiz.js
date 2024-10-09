@@ -58,8 +58,11 @@ const Quiz = () => {
     return (
         <div className="quiz-container">
             <header className="quiz-header">
-                <h1>Hangul Quiz</h1>
+                <h1>
+                    Hangul Quiz | <img src={`${process.env.PUBLIC_URL}/wsu.ico`} alt="Woosong University" className="university-icon" />
+                </h1>
             </header>
+
             <main className="quiz-main">
                 {showConfetti &&
                     <Confetti
@@ -93,7 +96,8 @@ const Quiz = () => {
                 )}
             </main>
             <footer className="quiz-footer">
-                <p>© 2024 Hangul Learning. All rights reserved. </p>
+                <p>© 2024  <a href="https://jasurlive.uz" target="_blank" rel="noopener noreferrer">jasurlive.uz</a>. All rights reserved.</p>
+
             </footer>
         </div>
     );
