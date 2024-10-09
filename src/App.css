@@ -27,21 +27,35 @@ body {
 .motivational-message {
   position: absolute;
   top: 50%;
-  /* Center vertically */
   left: 50%;
-  /* Center horizontally */
-  transform: translate(-50%, -350%);
-  /* Adjust position to center */
+  transform: translate(-50%, -300%);
   font-size: 24px;
   margin: 2rem;
-  color: #ff6f00;
-  /* Bright orange for motivation */
+  color: #78006c;
   font-weight: bold;
   transition: all 0.5s ease;
-  /* Smooth transition */
   z-index: 10;
-  /* Ensure it appears above other elements */
+
+  /* Apply the beat animation */
+  animation: beat 1s ease infinite;
+  /* Adjust the duration and repetition as needed */
 }
+
+
+@keyframes beat {
+
+  0%,
+  100% {
+    transform: translate(-50%, -300%) scale(1);
+    /* Original size */
+  }
+
+  50% {
+    transform: translate(-50%, -300%) scale(1.1);
+    /* Slightly larger */
+  }
+}
+
 
 
 .home {
@@ -220,7 +234,7 @@ a:active {
   font-size: 2.5rem;
   /* Increased font size */
   margin: 20px 0;
-  color: #d32f2f;
+  color: #06004d;
   /* Bright red for questions */
 }
 
@@ -262,8 +276,6 @@ a:active {
 .motivational-message {
   margin: 10px;
   font-size: 1.5rem;
-  /* Increased font size */
-  color: #d32f2f;
   /* Bright red color for feedback */
   transition: all 0.5s ease;
   /* Smooth transition for feedback */
@@ -377,7 +389,6 @@ a:active {
     /* Adjust position to center */
     font-size: 24px;
     margin: 2rem;
-    color: #ff6f00;
     /* Bright orange for motivation */
     font-weight: bold;
     transition: all 0.5s ease;
