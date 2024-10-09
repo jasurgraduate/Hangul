@@ -7,29 +7,32 @@ body {
   /* Light cyan background */
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   /* Prevent horizontal scrolling */
 }
 
 .quiz {
-  max-width: 800px;
+  max-width: 90%;
+  /* Adjusted max-width for mobile */
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   border-radius: 20px;
   /* More rounded corners for a softer look */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  /* Bigger shadow for depth */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  /* Smaller shadow for depth */
   background: linear-gradient(145deg, #fff3e0, #ffecb3);
   /* Warm gradient background */
 }
 
+
+
 .motivational-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -300%);
-  font-size: 24px;
-  margin: 2rem;
+  position: relative;
+  /* Changed to relative for mobile */
+  font-size: 20px;
+  /* Adjusted font size for mobile */
+  margin: 1rem;
   color: #78006c;
   font-weight: bold;
   transition: all 0.5s ease;
@@ -40,22 +43,19 @@ body {
   /* Adjust the duration and repetition as needed */
 }
 
-
 @keyframes beat {
 
   0%,
   100% {
-    transform: translate(-50%, -300%) scale(1);
+    transform: scale(1);
     /* Original size */
   }
 
   50% {
-    transform: translate(-50%, -300%) scale(1.1);
+    transform: scale(1.1);
     /* Slightly larger */
   }
 }
-
-
 
 .home {
   display: flex;
@@ -69,27 +69,28 @@ body {
   color: #fff;
   /* White text color */
   text-align: center;
-  padding: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  /* Bigger shadow for depth */
-  border-radius: 25px;
-  /* More rounded corners */
+  padding: 10px;
+  /* Reduced padding for mobile */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  /* Smaller shadow for depth */
+  border-radius: 15px;
+  /* Adjusted border-radius */
 }
 
 .home h1 {
-  font-size: 3.5rem;
-  /* Larger font size for heading */
+  font-size: 2.5rem;
+  /* Responsive heading size */
   margin-bottom: 10px;
   /* Space below the heading */
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /* Stronger text shadow for depth */
 }
 
 .home p {
-  font-size: 1.8rem;
-  /* Medium font size for paragraph */
-  margin-bottom: 30px;
-  /* Space below the paragraph */
+  font-size: 1.2rem;
+  /* Responsive paragraph size */
+  margin-bottom: 20px;
+  /* Reduced space below the paragraph */
   line-height: 1.5;
   /* Better readability */
 }
@@ -103,13 +104,24 @@ body {
   height: 100vh;
 }
 
+.quiz-footer {
+  background-color: #7b1fa2;
+  /* Bright purple for footer */
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
 .quiz-header {
   background-color: #7b1fa2;
   /* Bright purple for header */
   color: #fff;
   width: 100%;
   text-align: center;
-  /* Rounded corners for header */
+  padding: 10px;
+  /* Reduced padding for mobile */
 }
 
 /* General link styles */
@@ -147,11 +159,13 @@ a:active {
 
 /* Updated .option-button styles */
 .option-button {
-  margin: 20px;
-  padding: 20px 40px;
+  margin: 10px;
+  /* Reduced margin for mobile */
+  padding: 15px 30px;
+  /* Adjusted padding for mobile */
   /* Increased padding for larger buttons */
-  font-size: 1.5rem;
-  /* Increased font size */
+  font-size: 1.2rem;
+  /* Responsive font size */
   background-color: #4fd0a7;
   /* Bright green for base button color */
   color: rgb(3, 0, 50);
@@ -161,14 +175,16 @@ a:active {
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
   /* Smooth transition */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   /* Default shadow */
-  width: 150px;
-  /* Fixed width for buttons */
-  height: 70px;
+  width: 100%;
+  /* Full width for mobile */
+  width: 200px;
+  /* Max width for button */
+  height: 60px;
+  /* Adjusted height for button */
   font-family: 'Comic Sans MS', sans-serif;
   font-weight: bold;
-  padding: 1rem;
 }
 
 /* Hover state */
@@ -181,11 +197,6 @@ a:active {
   /* Glow effect on hover */
 }
 
-
-
-
-
-
 .quiz-content {
   position: relative;
   text-align: center;
@@ -193,20 +204,17 @@ a:active {
 }
 
 .feedback {
-  position: absolute;
-  /* Adjust the distance above the question */
-  left: 50%;
-  transform: translateX(-50%);
-  /* Center it horizontally */
+  position: relative;
+  /* Changed to relative for mobile */
   background-color: rgba(255, 255, 102, 0.9);
   /* Soft banana yellow background */
   color: #4a4a4a;
   /* Dark gray text color for better readability */
-  padding: 10px 20px;
-  /* Add some padding */
+  padding: 10px 15px;
+  /* Adjusted padding */
   border-radius: 10px;
   /* Rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   /* Light shadow for depth */
   font-size: 1.2rem;
   /* Increase font size */
@@ -245,10 +253,10 @@ a:active {
 }
 
 .university-icon {
-  width: 5rem;
-  /* Adjust width as needed */
-  height: 5rem;
-  /* Adjust height as needed */
+  width: 4rem;
+  /* Adjusted width for mobile */
+  height: 4rem;
+  /* Adjusted height for mobile */
   margin-left: 8px;
   /* Space between the text and the icon */
   vertical-align: middle;
@@ -256,35 +264,31 @@ a:active {
   /* Align icon vertically with the text */
 }
 
-
 .quiz-main {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  height: 100%;
 }
 
 .quiz-content {
   text-align: center;
+  width: 100%;
 }
 
 .question {
-  font-size: 2.5rem;
-  /* Increased font size */
-  margin: 20px 0;
+  font-size: 2rem;
+  /* Responsive question size */
+  margin: 3% 0;
   color: #06004d;
-  /* Bright red for questions */
+  /* Adjusted color for questions */
 }
-
-
 
 .feedback,
 .motivational-message {
   margin: 10px;
   font-size: 1.5rem;
-  /* Bright red color for feedback */
+  /* Responsive feedback size */
   transition: all 0.5s ease;
   /* Smooth transition for feedback */
 }
@@ -294,8 +298,10 @@ a:active {
 }
 
 .restart-button {
-  margin-top: 20px;
-  padding: 20px 40px;
+  margin-top: 10px;
+  /* Adjusted margin for mobile */
+  padding: 15px 30px;
+  /* Adjusted padding */
   /* Increased padding for larger button */
   font-size: 1.5rem;
   /* Increased font size */
@@ -322,142 +328,42 @@ a:active {
 
 .restart-button:active {
   transform: translateY(2px);
-  /* Button presses down */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  /* Reduced shadow on click */
+  /* Button press effect */
 }
 
-.quiz-footer {
-  background-color: #7b1fa2;
-  /* Bright purple for footer */
-  color: #fff;
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-}
-
-.start-button {
-  padding: 20px 40px;
-  /* Increased padding for larger button */
-  font-size: 1.5rem;
-  /* Increased font size for button text */
-  color: #fff;
-  /* White text color */
-  background-color: #ff4081;
-  /* Bright pink button color */
-  border: none;
-  /* No border */
-  border-radius: 15px;
-  /* Rounded corners for button */
-  cursor: pointer;
-  /* Pointer cursor on hover */
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  /* Smooth transition */
-}
-
-.start-button:hover {
-  background-color: #f50057;
-  /* Darker shade on hover */
-  transform: translateY(-4px);
-  /* Lift button effect */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  /* Glow effect on hover */
-}
-
-.start-button:focus {
-  outline: none;
-  /* Remove outline on focus */
-}
+/* ----------------------------------------------------------------- MOBILE*/
 
 @media (max-width: 600px) {
-
-  /* Mobile screen  */
   .home h1 {
-    font-size: 2.5rem;
-    /* Responsive heading size */
+    font-size: 2rem;
+    /* Smaller size for mobile */
+  }
+
+  .quiz-header {
+    background-color: #7b1fa2;
+    /* Bright purple for header */
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    /* Reduced padding for mobile */
+  }
+
+  .quiz-footer {
+    display: block;
+    margin-bottom: -1rem;
   }
 
   .home p {
-    font-size: 1.2rem;
-    /* Responsive paragraph size */
+    font-size: 1rem;
+    /* Smaller size for mobile */
   }
-
-  .question {
-    font-size: 1.5rem;
-    /* Responsive question size */
-  }
-
-  .motivational-message {
-    position: absolute;
-    top: 50%;
-    /* Center vertically */
-    left: 50%;
-    /* Center horizontally */
-    transform: translate(-50%, -150%);
-    /* Adjust position to center */
-    font-size: 24px;
-    margin: 2rem;
-    /* Bright orange for motivation */
-    font-weight: bold;
-    transition: all 0.5s ease;
-    /* Smooth transition */
-    z-index: 10;
-    /* Ensure it appears above other elements */
-  }
-
-
 
   .option-button,
-  .restart-button,
-  .start-button {
-    font-size: 1.2rem;
-    /* Responsive button size */
-    padding: 10px 20px;
-    /* Responsive padding */
+  .restart-button {
+    width: 90%;
+    /* Full width on mobile */
+    max-width: none;
+    /* Remove max-width */
   }
-}
-
-
-/* Confetti Styles */
-.confetti {
-  position: fixed;
-  pointer-events: none;
-  /* Prevent interactions */
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  /* Ensure confetti is on top */
-}
-
-@keyframes confetti-fall {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(100vh);
-  }
-}
-
-.confetti-piece {
-  position: absolute;
-  width: 15px;
-  /* Larger confetti pieces */
-  height: 15px;
-  /* Larger confetti pieces */
-  background-color: red;
-  /* Default color */
-  animation: confetti-fall 1s ease-in forwards;
-  /* Fall animation */
-}
-
-/* Additional Confetti Colors */
-.confetti-piece:nth-child(odd) {
-  background-color: blue;
-}
-
-.confetti-piece:nth-child(even) {
-  background-color: yellow;
 }

@@ -54,7 +54,7 @@ const Quiz = () => {
         if (nextQuestion < questions.length) {
             setTimeout(() => {
                 setFeedback('');
-            }, 2000);
+            }, 3000);
         } else {
             setFinished(true);
         }
