@@ -5,10 +5,10 @@ import '../App.css';
 import { questions } from './Questions'; // Adjust the path if necessary
 
 const motivationalMessages = [
-    "Awesome job! You're a Hangul master!",
-    "Keep it up! You're doing great!",
+    "Awesome job! You're a Hangul master! 😸",
+    "Keep it up! You're doing great! 🎸",
     "You're on fire! Keep learning! 🔥",
-    "Fantastic! Hangul will be second nature to you!",
+    "Fantastic! Hangul will be second nature to you! 🐼",
 ];
 
 const Quiz = () => {
