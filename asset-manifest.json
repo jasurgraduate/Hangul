@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Hangul/static/css/main.9d820bd8.css",
+    "main.js": "/Hangul/static/js/main.e8a28ad5.js",
+    "index.html": "/Hangul/index.html",
+    "main.9d820bd8.css.map": "/Hangul/static/css/main.9d820bd8.css.map",
+    "main.e8a28ad5.js.map": "/Hangul/static/js/main.e8a28ad5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d820bd8.css",
+    "static/js/main.e8a28ad5.js"
+  ]
+}
