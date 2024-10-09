@@ -25,15 +25,24 @@ body {
 }
 
 .motivational-message {
+  position: absolute;
+  top: 50%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -350%);
+  /* Adjust position to center */
   font-size: 24px;
-  /* Larger font for more impact */
-  margin: 20px 0;
+  margin: 2rem;
   color: #ff6f00;
   /* Bright orange for motivation */
   font-weight: bold;
   transition: all 0.5s ease;
   /* Smooth transition */
+  z-index: 10;
+  /* Ensure it appears above other elements */
 }
+
 
 .home {
   display: flex;
@@ -131,7 +140,6 @@ a:active {
 
 .feedback {
   position: absolute;
-  top: -60px;
   /* Adjust the distance above the question */
   left: 50%;
   transform: translateX(-50%);
@@ -359,6 +367,25 @@ a:active {
     /* Responsive question size */
   }
 
+  .motivational-message {
+    position: absolute;
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -150%);
+    /* Adjust position to center */
+    font-size: 24px;
+    margin: 2rem;
+    color: #ff6f00;
+    /* Bright orange for motivation */
+    font-weight: bold;
+    transition: all 0.5s ease;
+    /* Smooth transition */
+    z-index: 10;
+    /* Ensure it appears above other elements */
+  }
+
   .option-button,
   .restart-button,
   .start-button {
@@ -367,6 +394,10 @@ a:active {
     padding: 10px 20px;
     /* Responsive padding */
   }
+}
+
+.option-button:active {
+  background-color: tomato;
 }
 
 /* Confetti Styles */
