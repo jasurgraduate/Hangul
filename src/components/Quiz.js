@@ -20,10 +20,15 @@ const Quiz = () => {
     const [showConfetti, setShowConfetti] = useState(false);
     const [message, setMessage] = useState('');
 
+    // Initialize audio for correct and incorrect answers
+    const correctSound = new Audio(`${process.env.PUBLIC_URL}/sounds/true.mp3`);
+    const incorrectSound = new Audio(`${process.env.PUBLIC_URL}/sounds/fail.mp3`);
+
     const handleAnswer = (option) => {
         if (option === questions[currentQuestion].answer) {
             setScore(score + 1);
             setFeedback("Correct!");
+            correctSound.play(); // Play correct answer sound
 
             // Increment consecutive correct answers
             const newConsecutiveCorrect = consecutiveCorrect + 1;
@@ -36,6 +41,7 @@ const Quiz = () => {
             }
         } else {
             setFeedback("Incorrect. The correct answer is: " + questions[currentQuestion].answer);
+            incorrectSound.play(); // Play incorrect answer sound
             setConsecutiveCorrect(0); // Reset on incorrect answer
             setMessage(''); // Clear the motivational message
         }

@@ -146,6 +146,47 @@ a:active {
   /* Reset scale when clicked */
 }
 
+/* Updated .option-button styles */
+.option-button {
+  margin: 20px;
+  padding: 20px 40px;
+  /* Increased padding for larger buttons */
+  font-size: 1.5rem;
+  /* Increased font size */
+  background-color: #4fd0a7;
+  /* Bright green for base button color */
+  color: rgb(3, 0, 50);
+  border: none;
+  border-radius: 10px;
+  /* More rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  /* Smooth transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Default shadow */
+  width: 150px;
+  /* Fixed width for buttons */
+  height: 70px;
+  font-family: 'Comic Sans MS', sans-serif;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+/* Hover state */
+.option-button:hover {
+  background-color: #fffa78;
+  /* Darker green on hover */
+  transform: translateY(-4px);
+  /* Lift button effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  /* Glow effect on hover */
+}
+
+
+
+
+
+
 .quiz-content {
   position: relative;
   text-align: center;
@@ -238,39 +279,7 @@ a:active {
   /* Bright red for questions */
 }
 
-.option-button {
-  margin: 10px;
-  padding: 20px 40px;
-  /* Increased padding for larger buttons */
-  font-size: 1.5rem;
-  /* Increased font size */
-  background-color: #81c784;
-  /* Bright green for base button color */
-  border: none;
-  border-radius: 15px;
-  /* More rounded corners */
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  /* Smooth transition for multiple properties */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  /* Default shadow */
-}
 
-.option-button:hover {
-  background-color: #66bb6a;
-  /* Darker green on hover */
-  transform: translateY(-4px);
-  /* Lift button effect */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  /* Glow effect on hover */
-}
-
-.option-button:active {
-  transform: translateY(2px);
-  /* Button presses down */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  /* Reduced shadow on click */
-}
 
 .feedback,
 .motivational-message {
@@ -397,6 +406,8 @@ a:active {
     /* Ensure it appears above other elements */
   }
 
+
+
   .option-button,
   .restart-button,
   .start-button {
@@ -407,9 +418,6 @@ a:active {
   }
 }
 
-.option-button:active {
-  background-color: tomato;
-}
 
 /* Confetti Styles */
 .confetti {
