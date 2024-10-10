@@ -29,12 +29,6 @@ const Quiz = () => {
     const [message, setMessage] = useState('');
     const [showConfetti, setShowConfetti] = useState(false); // State to control confetti
     const [shuffledQuestions, setShuffledQuestions] = useState([]); // State to hold shuffled questions
-    const [touchStartY, setTouchStartY] = useState(0);  // Track touch start Y position
-    const [touchEndY, setTouchEndY] = useState(0);      // Track touch end Y position
-    const [refreshing, setRefreshing] = useState(false); // Track if refreshing
-
-    // Minimum distance the user needs to swipe down to trigger refresh
-    const minSwipeDistance = 50;
 
     // Initialize audio for correct and incorrect answers
     const correctSound = new Audio(`${process.env.PUBLIC_URL}/sounds/true.mp3`);
@@ -112,33 +106,8 @@ const Quiz = () => {
         setShuffledQuestions(shuffled);
     };
 
-    const handleTouchStart = (e) => {
-        setTouchStartY(e.touches[0].clientY);  // Capture initial Y position when touch starts
-    };
-
-    const handleTouchMove = (e) => {
-        setTouchEndY(e.touches[0].clientY);    // Update Y position as the user moves the finger
-    };
-
-    const handleTouchEnd = () => {
-        if (touchStartY - touchEndY > minSwipeDistance) {
-            console.log("Swipe detected, refreshing...");
-            setRefreshing(true); // Optionally set state to show a spinner or loading indicator
-
-            setTimeout(() => {
-                restartQuiz(); // Restart the quiz after swipe
-                setRefreshing(false); // Hide loading spinner or indicator after refresh
-            }, 500);
-        }
-    };
-
     return (
-        <div
-            className="quiz-container"
-            onTouchStart={handleTouchStart}  // Trigger touch start
-            onTouchMove={handleTouchMove}    // Trigger touch move
-            onTouchEnd={handleTouchEnd}      // Trigger touch end
-        >
+        <div className="quiz-container">
             <header className="quiz-header">
                 <h1>
                     Hangul Quiz | <img src={`${process.env.PUBLIC_URL}/wsu.ico`} alt="Woosong University" className="university-icon" />
@@ -159,7 +128,6 @@ const Quiz = () => {
                         onConfettiComplete={handleConfettiComplete}
                     />
                 )}
-                {refreshing && <div className="refresh-message">Refreshing...</div>} {/* Optional refresh indicator */}
                 {shuffledQuestions.length === 0 ? (
                     <p>Loading questions...</p>
                 ) : (
@@ -182,7 +150,6 @@ const Quiz = () => {
                     )
                 )}
             </main>
-
             <footer className="quiz-footer">
                 <p>© 2024 <a href="https://jasurlive.uz" target="_blank" rel="noopener noreferrer">jasurlive.uz</a>. All rights reserved.</p>
             </footer>

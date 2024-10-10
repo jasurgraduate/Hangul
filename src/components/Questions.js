@@ -16,6 +16,13 @@ export const questions = [
     { question: "What is the English letter for 'ㅍ'?", answer: "b/p", options: ["h", "t/d", "b/p", "m"] },
     { question: "What is the English letter for 'ㅎ'?", answer: "h", options: ["h", "n", "g", "j"] },
 
+    // Double Consonants (쌍자음)
+    { question: "What is the English sound for 'ㄲ'?", answer: "kk", options: ["kk", "gg", "k", "h"] },
+    { question: "What is the English sound for 'ㄸ'?", answer: "tt", options: ["tt", "dd", "tt", "rr"] },
+    { question: "What is the English sound for 'ㅃ'?", answer: "pp", options: ["pp", "bb", "pp", "m"] },
+    { question: "What is the English sound for 'ㅆ'?", answer: "ss", options: ["ss", "s", "tsh", "rr"] },
+    { question: "What is the English sound for 'ㅉ'?", answer: "jj", options: ["jj", "j", "tch", "gg"] },
+
     // Basic Vowels
     { question: "What is the English letter for 'ㅏ'?", answer: "a", options: ["a", "o", "u", "e"] },
     { question: "What is the English letter for 'ㅑ'?", answer: "ya", options: ["ya", "ae", "ye", "o"] },
@@ -28,11 +35,13 @@ export const questions = [
     { question: "What is the English letter for 'ㅡ'?", answer: "eu", options: ["eu", "i", "u", "o"] },
     { question: "What is the English letter for 'ㅣ'?", answer: "i", options: ["i", "e", "ae", "ya"] },
 
+    // Minimal Pairs for Vowels
+    { question: "Which of these sounds is for 'ㅐ'?", answer: "ae", options: ["ae", "e", "a", "i"] },
+    { question: "Which of these sounds is for 'ㅔ'?", answer: "e", options: ["ae", "e", "a", "i"] },
+    { question: "Which of these sounds is for 'ㅒ'?", answer: "yae", options: ["yae", "ye", "e", "i"] },
+    { question: "Which of these sounds is for 'ㅖ'?", answer: "ye", options: ["yae", "ye", "e", "a"] },
+
     // Combined Vowels
-    { question: "What is the English letter for 'ㅐ'?", answer: "ae", options: ["ae", "e", "yae", "ye"] },
-    { question: "What is the English letter for 'ㅔ'?", answer: "e", options: ["ae", "e", "i", "u"] },
-    { question: "What is the English letter for 'ㅒ'?", answer: "yae", options: ["yae", "ye", "yeo", "u"] },
-    { question: "What is the English letter for 'ㅖ'?", answer: "ye", options: ["ye", "yae", "e", "i"] },
     { question: "What is the English letter for 'ㅘ'?", answer: "wa", options: ["wa", "we", "wi", "eu"] },
     { question: "What is the English letter for 'ㅙ'?", answer: "wae", options: ["wa", "wae", "wo", "e"] },
     { question: "What is the English letter for 'ㅝ'?", answer: "wo", options: ["wo", "we", "wa", "u"] },
@@ -40,7 +49,7 @@ export const questions = [
     { question: "What is the English letter for 'ㅟ'?", answer: "wi", options: ["wi", "eu", "i", "o"] },
     { question: "What is the English letter for 'ㅢ'?", answer: "ui", options: ["ui", "u", "i", "a"] },
 
-    // Common Syllables #
+    // Common Syllables
     { question: "What is the English letter for '가'?", answer: "ga", options: ["ga", "na", "da", "ma"] },
     { question: "What is the English letter for '나'?", answer: "na", options: ["ga", "na", "da", "ba"] },
     { question: "What is the English letter for '다'?", answer: "da", options: ["ja", "da", "sa", "ma"] },
@@ -54,4 +63,8 @@ export const questions = [
     { question: "What is the English letter for '타'?", answer: "ta", options: ["ta", "da", "ka", "ba"] },
     { question: "What is the English letter for '파'?", answer: "pa", options: ["pa", "ya", "ma", "ra"] },
     { question: "What is the English letter for '하'?", answer: "ha", options: ["ha", "ka", "ma", "ga"] },
+
+    // Minimal Pairs for Consonants
+    { question: "Which of these sounds is for 'ㅈ'?", answer: "j", options: ["j", "ch", "g", "d"] },
+    { question: "Which of these sounds is for 'ㅊ'?", answer: "ch", options: ["ch", "j", "t", "s"] },
 ];
