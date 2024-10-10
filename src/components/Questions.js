@@ -17,9 +17,9 @@ export const questions = [
     { question: "What is the English letter for 'ㅎ'?", answer: "h", options: ["h", "n", "g", "j"] },
 
     // Double Consonants (쌍자음)
-    { question: "What is the English sound for 'ㄲ'?", answer: "kk", options: ["kk", "gg", "k", "h"] },
-    { question: "What is the English sound for 'ㄸ'?", answer: "tt", options: ["tt", "dd", "tt", "rr"] },
-    { question: "What is the English sound for 'ㅃ'?", answer: "pp", options: ["pp", "bb", "pp", "m"] },
+    { question: "What is the English sound for 'ㄲ'?", answer: "kk", options: ["kk", "hh", "k", "h"] },
+    { question: "What is the English sound for 'ㄸ'?", answer: "tt", options: ["tt", "yy", "tt", "rr"] },
+    { question: "What is the English sound for 'ㅃ'?", answer: "pp", options: ["pp", "ss", "yy", "m"] },
     { question: "What is the English sound for 'ㅆ'?", answer: "ss", options: ["ss", "s", "tsh", "rr"] },
     { question: "What is the English sound for 'ㅉ'?", answer: "jj", options: ["jj", "j", "tch", "gg"] },
 
@@ -67,4 +67,18 @@ export const questions = [
     // Minimal Pairs for Consonants
     { question: "Which of these sounds is for 'ㅈ'?", answer: "j", options: ["j", "ch", "g", "d"] },
     { question: "Which of these sounds is for 'ㅊ'?", answer: "ch", options: ["ch", "j", "t", "s"] },
+
+    //
+
+    /* { question: "How do you write '사랑' in English letters?", answer: "sarang", options: ["sarang", "salkang", "sareang", "sareng"] },
+    { question: "How do you write '학교' in English letters?", answer: "hakgyo", options: ["hakgyo", "hakgyeo", "hakkyu", "hakko"] },
+    { question: "How do you write '친구' in English letters?", answer: "chingu", options: ["chingu", "jingoo", "changgo", "chingoo"] },
+    { question: "How do you write '음악' in English letters?", answer: "eumak", options: ["eumak", "umak", "omak", "eomak"] },
+    { question: "How do you write '물' in English letters?", answer: "mul", options: ["mul", "mup", "meul", "moel"] },
+    { question: "How do you write '책' in English letters?", answer: "chaek", options: ["chaek", "cheak", "chak", "chook"] },
+    { question: "How do you write '사과' in English letters?", answer: "sagwa", options: ["sagwa", "sakwa", "seogwa", "seokwa"] },
+    { question: "How do you write '커피' in English letters?", answer: "keopi", options: ["keopi", "keupi", "kupi", "kupe"] },
+    { question: "How do you write '음식' in English letters?", answer: "eumsik", options: ["eumsik", "umsik", "oemsik", "eumshik"] }, */
+
+
 ];

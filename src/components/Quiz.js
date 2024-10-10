@@ -33,7 +33,7 @@ const Quiz = () => {
     // Initialize audio for correct and incorrect answers
     const correctSound = new Audio(`${process.env.PUBLIC_URL}/sounds/true.mp3`);
     const incorrectSound = new Audio(`${process.env.PUBLIC_URL}/sounds/fail.mp3`);
-    incorrectSound.volume = 0.3; // Set volume to 70%
+    incorrectSound.volume = 0.3; // Set volume to 30%
 
     useEffect(() => {
         const shuffled = shuffleArray(questions.map(question => ({
@@ -112,6 +112,10 @@ const Quiz = () => {
                 <h1>
                     Hangul Quiz | <img src={`${process.env.PUBLIC_URL}/wsu.ico`} alt="Woosong University" className="university-icon" />
                 </h1>
+                {/* Display current quiz number out of total */}
+                <div className="quiz-counter">
+                    {`${currentQuestion + 1}/${shuffledQuestions.length}`}
+                </div>
             </header>
 
             <main className="quiz-main">
@@ -132,7 +136,7 @@ const Quiz = () => {
                     <p>Loading questions...</p>
                 ) : (
                     finished ? (
-                        <div class='res'>
+                        <div className='res'>
                             <Results score={score} total={shuffledQuestions.length} />
                             <button onClick={restartQuiz} className="restart-button">♻️ Restart Quiz</button>
                         </div>
