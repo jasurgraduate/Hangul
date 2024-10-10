@@ -52,6 +52,6 @@ export const questions = [
     { question: "What is the English letter for '차'?", answer: "cha", options: ["cha", "ja", "da", "sa"] },
     { question: "What is the English letter for '카'?", answer: "ka", options: ["ka", "ta", "pa", "ma"] },
     { question: "What is the English letter for '타'?", answer: "ta", options: ["ta", "da", "ka", "ba"] },
-    { question: "What is the English letter for '파'?", answer: "pa", options: ["pa", "ba", "ma", "ra"] },
+    { question: "What is the English letter for '파'?", answer: "pa", options: ["pa", "ya", "ma", "ra"] },
     { question: "What is the English letter for '하'?", answer: "ha", options: ["ha", "ka", "ma", "ga"] },
 ];

@@ -356,14 +356,21 @@ a:active {
     /* Smaller size for mobile */
   }
 
+  .question {
+    font-size: 22px;
+    /* Responsive question size */
+    margin: 10px;
+    color: #06004d;
+    /* Adjusted color for questions */
+  }
+
   body {
-    height: fit-content;
-    overflow: hidden;
+    height: 100vh;
   }
 
   .quiz-container {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .quiz-footer {
@@ -378,13 +385,12 @@ a:active {
     text-align: center;
     padding: 5px;
     font-size: 12px;
-    height: 80px;
     /* Reduced padding for mobile */
   }
 
   .quiz-footer {
-    display: block;
-    margin-bottom: -1rem;
+    position: absolute;
+    bottom: 0;
   }
 
   .home p {
