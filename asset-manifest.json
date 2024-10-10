@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Hangul/static/css/main.915f54ab.css",
-    "main.js": "/Hangul/static/js/main.751a50b6.js",
+    "main.js": "/Hangul/static/js/main.6b6390ba.js",
     "index.html": "/Hangul/index.html",
     "main.915f54ab.css.map": "/Hangul/static/css/main.915f54ab.css.map",
-    "main.751a50b6.js.map": "/Hangul/static/js/main.751a50b6.js.map"
+    "main.6b6390ba.js.map": "/Hangul/static/js/main.6b6390ba.js.map"
   },
   "entrypoints": [
     "static/css/main.915f54ab.css",
-    "static/js/main.751a50b6.js"
+    "static/js/main.6b6390ba.js"
   ]
 }
