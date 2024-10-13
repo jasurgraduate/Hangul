@@ -12,6 +12,57 @@ body {
   /* Prevent horizontal scrolling */
 }
 
+/* Card.css */
+.card {
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.result {
+  margin: 20px 0;
+}
+
+.percentage-bar {
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.percentage-fill {
+  height: 100%;
+  background-color: #76c7c0;
+  /* Change to any color you like */
+  transition: width 0.3s ease;
+}
+
+.percentage-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.download-button {
+  background-color: #4CAF50;
+  /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+  /* Darker green */
+}
+
+
 .quiz {
   max-width: 90%;
   /* Adjusted max-width for mobile */

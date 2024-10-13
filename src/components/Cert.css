@@ -1,0 +1,125 @@
+/* Cert.css */
+
+.cert-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certificate {
+    border: 2px solid #00bfff;
+    /* Border color */
+    padding: 20px;
+    width: 150mm;
+    /* Adjusted width to make it smaller */
+    height: 210mm;
+    /* Adjusted height to make it smaller */
+    background: linear-gradient(135deg, #eaf3fc 50%, #ffffff 50%);
+    /* Gradient background */
+    position: relative;
+    /* For positioning elements */
+    margin: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Shadow for depth */
+    text-align: center;
+    border-radius: 15px;
+    /* Rounded corners */
+}
+
+.logo {
+    width: 170px;
+    /* Reduced space between logo and title */
+    position: relative;
+    top: -35px;
+    /* Lifts the logo slightly up */
+}
+
+.title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* Title font */
+    font-size: 36px;
+    color: #002f2d;
+    /* Title color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    /* Text shadow */
+    margin-top: -20px;
+}
+
+.name {
+    font-family: 'Arial', sans-serif;
+    /* Name font */
+    font-size: 28px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #007763;
+    /* Name color */
+}
+
+.text {
+    font-family: 'Verdana', sans-serif;
+    /* Body font */
+    font-size: 17px;
+    margin: 5px 0;
+    color: #555;
+    /* Text color */
+}
+
+.kr-flag {
+    width: 250px;
+    /* Adjust the size of the KR image */
+    margin-top: 40px;
+    /* Space between text and flag */
+}
+
+.copy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+}
+
+.copyright {
+    position: absolute;
+    /* Positioning to the bottom */
+    bottom: 10px;
+    /* Distance from the bottom */
+    font-family: 'Times New Roman', Times, serif;
+    /* Copyright font */
+    font-size: 12px;
+    text-align: center;
+    /* Center the copyright text */
+    color: #777;
+    /* Copyright text color */
+}
+
+.button-container {
+    margin-top: 20px;
+    /* Add space between certificate and buttons */
+}
+
+.button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-family: 'Arial', sans-serif;
+    /* Button font */
+    font-weight: bold;
+    /* Bold text */
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    /* Button background */
+    color: white;
+    /* Button text color */
+    border: none;
+    border-radius: 5px;
+    /* Rounded button corners */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Transition effects */
+}
+
+.button:hover {
+    background-color: #45a049;
+    /* Button hover color */
+    transform: scale(1.05);
+    /* Button scale effect */
+}

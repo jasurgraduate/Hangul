@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Confetti from 'react-confetti';
 import '../App.css';
 import { questions } from './Questions'; // Adjust the path if necessary
 import Results from './Results'; // Import the Results component
+import Cert from './Cert'; // Import the Cert component
 
 const motivationalMessages = [
     "Awesome job! You're a Hangul master! 😸",
@@ -11,40 +12,40 @@ const motivationalMessages = [
     "Fantastic! Hangul will be second nature to you! 🐼",
 ];
 
-// Utility function to shuffle an array
-const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-    }
-    return array;
-};
+// Group questions into stages
+const stages = [
+    questions.slice(0, 3), // Stage 1: First 3 questions
+    questions.slice(3, 9), // Stage 2: Next 6 questions
+    questions.slice(9, 20), // Stage 3: Next 11 questions
+    questions.slice(20, 32), // Stage 4: Next 12 questions
+    questions.slice(32, 44), // Stage 5: Next 12 questions
+    questions.slice(44, 57), // Stage 6: Next 13 questions
+];
 
 const Quiz = () => {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentStage, setCurrentStage] = useState(0);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [finished, setFinished] = useState(false);
     const [feedback, setFeedback] = useState('');
     const [consecutiveCorrect, setConsecutiveCorrect] = useState(0);
     const [message, setMessage] = useState('');
-    const [showConfetti, setShowConfetti] = useState(false); // State to control confetti
-    const [shuffledQuestions, setShuffledQuestions] = useState([]); // State to hold shuffled questions
+    const [showConfetti, setShowConfetti] = useState(false);
+    const [stageFinished, setStageFinished] = useState(false);
+    const [showCertificate, setShowCertificate] = useState(false); // State for showing the certificate
+
+    // Calculate total number of questions
+    const totalQuestions = stages.reduce((acc, stage) => acc + stage.length, 0);
 
     // Initialize audio for correct and incorrect answers
     const correctSound = new Audio(`${process.env.PUBLIC_URL}/sounds/true.mp3`);
     const incorrectSound = new Audio(`${process.env.PUBLIC_URL}/sounds/fail.mp3`);
     incorrectSound.volume = 0.3; // Set volume to 30%
 
-    useEffect(() => {
-        const shuffled = shuffleArray(questions.map(question => ({
-            ...question,
-            options: shuffleArray([...question.options]) // Shuffle options for each question
-        })));
-        setShuffledQuestions(shuffled);
-    }, []);
-
     const handleAnswer = (option) => {
-        if (option === shuffledQuestions[currentQuestion].answer) {
+        const currentQuestion = stages[currentStage][currentQuestionIndex];
+
+        if (option === currentQuestion.answer) {
             setScore(score + 1);
             setFeedback("Correct!");
             correctSound.play(); // Play correct answer sound
@@ -64,23 +65,39 @@ const Quiz = () => {
                 }, 3000);
             }
         } else {
-            setFeedback("Incorrect. The correct answer is: " + shuffledQuestions[currentQuestion].answer);
+            setFeedback("Incorrect. The correct answer is: " + currentQuestion.answer);
             incorrectSound.play(); // Play incorrect answer sound
             setConsecutiveCorrect(0); // Reset on incorrect answer
             setMessage(''); // Clear the motivational message
         }
 
-        // Immediately move to the next question
-        const nextQuestion = currentQuestion + 1;
-        setCurrentQuestion(nextQuestion < shuffledQuestions.length ? nextQuestion : currentQuestion);
+        // Move to the next question or next stage
+        const nextQuestionIndex = currentQuestionIndex + 1;
+        if (nextQuestionIndex < stages[currentStage].length) {
+            setCurrentQuestionIndex(nextQuestionIndex);
+        } else {
+            // Stage is finished
+            setStageFinished(true);
+            setShowConfetti(true); // Show confetti after finishing the stage
 
-        // If there are more questions, set a timeout to clear feedback
-        if (nextQuestion < shuffledQuestions.length) {
+            // Clear feedback and reset question index for the next stage
             setTimeout(() => {
                 setFeedback('');
             }, 3000);
+        }
+    };
+
+    const handleNextStage = () => {
+        // Check if we are on the last stage
+        if (currentStage < stages.length - 1) {
+            setCurrentStage(currentStage + 1);
+            setCurrentQuestionIndex(0);
+            setStageFinished(false); // Reset stage finished state
+            setScore(0); // Reset score for the next stage (optional)
+            setShowConfetti(false); // Reset confetti state
         } else {
-            setFinished(true);
+            // If it's the last stage, show the certificate
+            setShowCertificate(true);
         }
     };
 
@@ -90,20 +107,16 @@ const Quiz = () => {
 
     // New function to reset the quiz state
     const restartQuiz = () => {
-        setCurrentQuestion(0);
+        setCurrentStage(0);
+        setCurrentQuestionIndex(0);
         setScore(0);
         setFinished(false);
         setFeedback('');
         setConsecutiveCorrect(0);
         setMessage('');
         setShowConfetti(false); // Reset confetti state
-
-        // Shuffle questions again
-        const shuffled = shuffleArray(questions.map(question => ({
-            ...question,
-            options: shuffleArray([...question.options]) // Shuffle options for each question
-        })));
-        setShuffledQuestions(shuffled);
+        setStageFinished(false); // Reset stage finished state
+        setShowCertificate(false); // Reset certificate state
     };
 
     return (
@@ -112,9 +125,9 @@ const Quiz = () => {
                 <h1>
                     Hangul Quiz | <img src={`${process.env.PUBLIC_URL}/wsu.ico`} alt="Woosong University" className="university-icon" />
                 </h1>
-                {/* Display current quiz number out of total */}
+                {/* Display current stage and question number */}
                 <div className="quiz-counter">
-                    {`${currentQuestion + 1}/${shuffledQuestions.length}`}
+                    {`Stage ${currentStage + 1}/${stages.length} | Question ${currentQuestionIndex + 1}/${stages[currentStage].length}`}
                 </div>
             </header>
 
@@ -132,31 +145,37 @@ const Quiz = () => {
                         onConfettiComplete={handleConfettiComplete}
                     />
                 )}
-                {shuffledQuestions.length === 0 ? (
-                    <p>Loading questions...</p>
+                {stageFinished ? (
+                    <div className='res'>
+                        {/* Pass the total number of questions to the Results component */}
+                        <Results score={score} total={totalQuestions} />
+                        <button onClick={handleNextStage} className="restart-button">
+                            {currentStage < stages.length - 1 ? '➡️ Next Stage' : '🔄 Finish Quiz and Get Certificate'}
+                        </button>
+                        <button onClick={restartQuiz} className="restart-button">
+                            🔄 Restart Quiz
+                        </button>
+                    </div>
                 ) : (
-                    finished ? (
-                        <div className='res'>
-                            <Results score={score} total={shuffledQuestions.length} />
-                            <button onClick={restartQuiz} className="restart-button">♻️ Restart Quiz</button>
-                        </div>
-                    ) : (
-                        <div className="quiz-content">
-                            <h2 className="question">{shuffledQuestions[currentQuestion].question}</h2>
-                            {shuffledQuestions[currentQuestion].options.map((option, index) => (
-                                <button key={index} onClick={() => handleAnswer(option)} className="option-button">
-                                    {option}
-                                </button>
-                            ))}
-                            {message && <div className="motivational-message">{message}</div>}
-                            {feedback && <div className="feedback">{feedback}</div>}
-                        </div>
-                    )
+                    <div className="quiz-content">
+                        <h2 className="question">{stages[currentStage][currentQuestionIndex].question}</h2>
+                        {stages[currentStage][currentQuestionIndex].options.map((option, index) => (
+                            <button key={index} onClick={() => handleAnswer(option)} className="option-button">
+                                {option}
+                            </button>
+                        ))}
+                        {message && <div className="motivational-message">{message}</div>}
+                        {feedback && <div className="feedback">{feedback}</div>}
+                    </div>
                 )}
             </main>
             <footer className="quiz-footer">
                 <p>© 2024 <a href="https://jasurlive.uz" target="_blank" rel="noopener noreferrer">jasurlive.uz</a>. All rights reserved.</p>
             </footer>
+
+            {showCertificate && (
+                <Cert score={score} total={totalQuestions} onClose={() => setShowCertificate(false)} />
+            )}
         </div>
     );
 };
