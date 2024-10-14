@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Hangul/static/css/main.0de71bd5.css",
-    "main.js": "/Hangul/static/js/main.586b7e9a.js",
+    "main.js": "/Hangul/static/js/main.23c9c141.js",
     "static/media/KR.png": "/Hangul/static/media/KR.637ba0150b8530c8386f.png",
-    "static/media/QR.png": "/Hangul/static/media/QR.65004311014354975b20.png",
+    "static/media/QR.png": "/Hangul/static/media/QR.46aa96b3a27e1ed88dda.png",
     "static/media/wsu.png": "/Hangul/static/media/wsu.1b07fe6f61a31646aa36.png",
     "index.html": "/Hangul/index.html",
     "main.0de71bd5.css.map": "/Hangul/static/css/main.0de71bd5.css.map",
-    "main.586b7e9a.js.map": "/Hangul/static/js/main.586b7e9a.js.map"
+    "main.23c9c141.js.map": "/Hangul/static/js/main.23c9c141.js.map"
   },
   "entrypoints": [
     "static/css/main.0de71bd5.css",
-    "static/js/main.586b7e9a.js"
+    "static/js/main.23c9c141.js"
   ]
 }
