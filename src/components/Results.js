@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Results = ({ score, total }) => {
+const Results = ({ score, total, totalLeft }) => {
     // Calculate the percentage of correct answers
     const percentage = (score / total) * 100;
 
@@ -19,11 +19,11 @@ const Results = ({ score, total }) => {
     // Find the appropriate message based on percentage
     const resultMessage = messages.find(({ range }) => percentage >= range[0] && percentage <= range[1])?.message || "Keep trying, you'll get it next time!";
 
+
     return (
         <div className="results">
             <h2>Your Score: {score}/{total}</h2>
-            <h3>Total Questions: {total}</h3> {/* Show the total number of questions */}
-            <h3>Solved Percentage: {percentage.toFixed(2)}%</h3> {/* Show the solved percentage */}
+            <h3>Total Questions Left: {totalLeft}</h3> {/* Show the total number of questions left */}
             <div className='result-message'>
                 <p>{resultMessage}</p>
             </div>

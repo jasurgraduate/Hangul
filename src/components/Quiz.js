@@ -19,14 +19,13 @@ const stages = [
     questions.slice(9, 20), // Stage 3: Next 11 questions
     questions.slice(20, 32), // Stage 4: Next 12 questions
     questions.slice(32, 44), // Stage 5: Next 12 questions
-    questions.slice(44, 57), // Stage 6: Next 13 questions
+    questions.slice(44, 54), // Stage 6: Next 13 questions
 ];
 
 const Quiz = () => {
     const [currentStage, setCurrentStage] = useState(0);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [score, setScore] = useState(0);
-    const [finished, setFinished] = useState(false);
+    const [score, setScore] = useState(0); // This will be the cumulative score across all stages
     const [feedback, setFeedback] = useState('');
     const [consecutiveCorrect, setConsecutiveCorrect] = useState(0);
     const [message, setMessage] = useState('');
@@ -37,6 +36,12 @@ const Quiz = () => {
     // Calculate total number of questions
     const totalQuestions = stages.reduce((acc, stage) => acc + stage.length, 0);
 
+    // Calculate total questions answered so far
+    const questionsAnswered = currentStage * stages[currentStage].length + currentQuestionIndex;
+
+    // Calculate total questions left
+    const totalQuestionsLeft = totalQuestions - questionsAnswered;
+
     // Initialize audio for correct and incorrect answers
     const correctSound = new Audio(`${process.env.PUBLIC_URL}/sounds/true.mp3`);
     const incorrectSound = new Audio(`${process.env.PUBLIC_URL}/sounds/fail.mp3`);
@@ -46,7 +51,7 @@ const Quiz = () => {
         const currentQuestion = stages[currentStage][currentQuestionIndex];
 
         if (option === currentQuestion.answer) {
-            setScore(score + 1);
+            setScore(score + 1); // Increment cumulative score
             setFeedback("Correct!");
             correctSound.play(); // Play correct answer sound
 
@@ -93,7 +98,6 @@ const Quiz = () => {
             setCurrentStage(currentStage + 1);
             setCurrentQuestionIndex(0);
             setStageFinished(false); // Reset stage finished state
-            setScore(0); // Reset score for the next stage (optional)
             setShowConfetti(false); // Reset confetti state
         } else {
             // If it's the last stage, show the certificate
@@ -109,8 +113,7 @@ const Quiz = () => {
     const restartQuiz = () => {
         setCurrentStage(0);
         setCurrentQuestionIndex(0);
-        setScore(0);
-        setFinished(false);
+        setScore(0); // Reset cumulative score when restarting
         setFeedback('');
         setConsecutiveCorrect(0);
         setMessage('');
@@ -127,7 +130,7 @@ const Quiz = () => {
                 </h1>
                 {/* Display current stage and question number */}
                 <div className="quiz-counter">
-                    {`Stage ${currentStage + 1}/${stages.length} | Question ${currentQuestionIndex + 1}/${stages[currentStage].length}`}
+                    {`🟩 Current Stage: ${currentStage + 1} | Question ${currentQuestionIndex + 1}/${stages[currentStage].length}`}
                 </div>
             </header>
 
@@ -147,15 +150,16 @@ const Quiz = () => {
                 )}
                 {stageFinished ? (
                     <div className='res'>
-                        {/* Pass the total number of questions to the Results component */}
-                        <Results score={score} total={totalQuestions} />
+                        {/* Pass the cumulative score and total number of questions left to the Results component */}
+                        <Results score={score} total={totalQuestions} totalLeft={totalQuestionsLeft} />
                         <button onClick={handleNextStage} className="restart-button">
-                            {currentStage < stages.length - 1 ? '➡️ Next Stage' : '🔄 Finish Quiz and Get Certificate'}
+                            {currentStage < stages.length - 1 ? '➡️ Next Stage' : '✅ Finish Quiz and Get Certificate 📄'}
                         </button>
                         <button onClick={restartQuiz} className="restart-button">
                             🔄 Restart Quiz
                         </button>
                     </div>
+
                 ) : (
                     <div className="quiz-content">
                         <h2 className="question">{stages[currentStage][currentQuestionIndex].question}</h2>

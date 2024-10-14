@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import './Cert.css'; // Import the CSS file
 import logo from './wsu.png'; // Import the logo image
 import krFlag from './KR.png'; // Import the KR image
+import QRCode from './QR.png';
 
 const Cert = ({ score, total, onClose }) => {
     const [userName, setUserName] = useState(''); // State to hold user name
@@ -59,26 +60,27 @@ const Cert = ({ score, total, onClose }) => {
     return (
         <div className="cert-container"> {/* Added a container for better layout */}
             {isNameInputVisible ? (
-                <form onSubmit={handleNameSubmit} className="name-input-form"> {/* Form for user name input */}
-                    <label htmlFor="userName">Please enter your full name:</label>
+                <div className="input-container"><form onSubmit={handleNameSubmit} className="name-input-form"> {/* Form for user name input */}
+                    <label htmlFor="userName" className='text-name'>Please enter your Full Name:<br /></label>
                     <input
                         type="text"
+                        className='name-input-cert'
                         id="userName"
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                         required
                     />
-                    <button type="submit">Submit</button>
-                </form>
+                    <button type="submit" className='submit-button'>Submit</button>
+                </form></div>
             ) : (
                 <div className="certificate" id="certificate">
                     {/* Logo at the top center */}
                     <img src={logo} alt="Logo" className="logo" />
 
                     <h1 className="title">CERTIFICATE <br /> of Hangul (한글) Quiz</h1>
-                    <p className="text">This certifies that</p>
+                    <p className="text">This is to certify that</p>
                     <h2 className="name">{userName || '[User\'s Name]'}</h2> {/* Display user name or placeholder */}
-                    <p className="text">has successfully completed the Hangul Quiz</p>
+                    <p className="text">has successfully completed the Hangul Quiz Online.</p>
                     <br />
                     <p className="text">Score: <b>{score}/{total}</b></p>
 
@@ -91,9 +93,11 @@ const Cert = ({ score, total, onClose }) => {
                     {/* KR flag at the bottom center */}
                     <img src={krFlag} alt="KR Flag" className="kr-flag" />
 
+
                     {/* Copyright text styled to the bottom of the certificate */}
                     <div className="copy-container">
-                        <div className="copyright">Get your own Hangul Certificate at: <b><i>www.jasurlive.uz</i></b></div>
+                        <p className="qr-text">Get Your Hangul Certificate:</p> {/* Added a class to style this text */}
+                        <img src={QRCode} alt="QR Code" className="qr-code" />
                     </div>
                 </div>
             )}
@@ -101,8 +105,8 @@ const Cert = ({ score, total, onClose }) => {
             <div className="button-container"> {/* Separate button container */}
                 {!isNameInputVisible && ( // Only show buttons after name is submitted
                     <>
-                        <button onClick={handleDownload} className="button">Download Certificate</button>
-                        <button onClick={onClose} className="button">Close</button>
+                        <button onClick={handleDownload} className="button">⬇️ Download Certificate</button>
+                        <button onClick={onClose} className="button">❎ Close</button>
                     </>
                 )}
             </div>

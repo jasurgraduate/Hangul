@@ -1,23 +1,36 @@
 /* Cert.css */
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    /* Cartoonish font */
+    background-color: #e0f7fa;
+    /* Light cyan background */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 
+/* Container for the entire certificate section */
 .cert-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
+    /* Adds space between the certificate and footer */
 }
 
+/* Certificate styling */
 .certificate {
     border: 2px solid #00bfff;
     /* Border color */
     padding: 20px;
     width: 150mm;
-    /* Adjusted width to make it smaller */
+    /* Adjusted width */
     height: 210mm;
-    /* Adjusted height to make it smaller */
+    /* Adjusted height */
     background: linear-gradient(135deg, #eaf3fc 50%, #ffffff 50%);
     /* Gradient background */
     position: relative;
-    /* For positioning elements */
+    /* For positioning elements inside */
     margin: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     /* Shadow for depth */
@@ -26,28 +39,29 @@
     /* Rounded corners */
 }
 
+/* Logo styling */
 .logo {
     width: 170px;
-    /* Reduced space between logo and title */
+    /* Size of the logo */
     position: relative;
     top: -35px;
-    /* Lifts the logo slightly up */
+    /* Lifts the logo slightly */
 }
 
+/* Title styling */
 .title {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /* Title font */
     font-size: 36px;
     color: #002f2d;
     /* Title color */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    /* Text shadow */
+    /* Text shadow for depth */
     margin-top: -20px;
 }
 
+/* Name styling */
 .name {
     font-family: 'Arial', sans-serif;
-    /* Name font */
     font-size: 28px;
     margin: 10px 0;
     font-weight: bold;
@@ -55,71 +69,263 @@
     /* Name color */
 }
 
+/* General text styling */
 .text {
     font-family: 'Verdana', sans-serif;
-    /* Body font */
     font-size: 17px;
     margin: 5px 0;
     color: #555;
     /* Text color */
 }
 
+/* Flag image styling */
 .kr-flag {
     width: 250px;
-    /* Adjust the size of the KR image */
     margin-top: 40px;
     /* Space between text and flag */
 }
 
-.copy-container {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-
-}
-
+/* Footer (copyright) styling */
 .copyright {
-    position: absolute;
-    /* Positioning to the bottom */
-    bottom: 10px;
-    /* Distance from the bottom */
     font-family: 'Times New Roman', Times, serif;
-    /* Copyright font */
     font-size: 12px;
-    text-align: center;
-    /* Center the copyright text */
     color: #777;
     /* Copyright text color */
+    text-align: center;
+    margin-top: 20px;
+    /* Adds space above the footer */
 }
 
 .button-container {
-    margin-top: 20px;
-    /* Add space between certificate and buttons */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
 }
 
+/* Button styling */
 .button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-family: 'Arial', sans-serif;
-    /* Button font */
-    font-weight: bold;
-    /* Bold text */
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    /* Button background */
-    color: white;
-    /* Button text color */
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 20px;
+    /* Adjusted margin for mobile */
+    padding: 15px 30px;
+    /* Adjusted padding */
+    /* Increased padding for larger button */
+    font-size: 1.5rem;
+    /* Increased font size */
+    background-color: #2dfba2;
+    /* Bright yellow for restart button */
     border: none;
-    border-radius: 5px;
-    /* Rounded button corners */
-    transition: background-color 0.3s, transform 0.2s;
-    /* Transition effects */
+    border-radius: 15px;
+    /* More rounded corners */
+    cursor: pointer;
+    color: #08003b;
+    /* Black text for contrast */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    /* Smooth transition */
 }
 
 .button:hover {
-    background-color: #45a049;
-    /* Button hover color */
+    background-color: #25b6f9;
+    /* Darker shade on hover */
+    transform: translateY(-4px);
+    /* Lift button effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    /* Glow effect on hover */
+}
+
+.button:active {
+    transform: translateY(2px);
+    /* Button press effect */
+}
+
+/* QR code styling */
+.qr-code {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+/* Container for QR code and associated text */
+.copy-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 10px 2rem 0;
+    text-align: center;
+    width: 70px;
+}
+
+/* Text above QR code */
+.qr-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 50px;
+    /* Space between the text and QR code */
+}
+
+
+
+/* Footer placement outside and below the certificate */
+.footer-container {
+    text-align: center;
+    margin-top: 20px;
+    /* Adds space between the certificate and the footer */
+}
+
+.name-input-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* Modal container */
+.input-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Arrange content vertically */
+    height: 100%;
+    width: 90%;
+    background-color: #eef8f4e9;
+    /* Pure white background */
+    z-index: 9999;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow for depth */
+    border-radius: 15px;
+    /* More rounded corners */
+    padding: 20px;
+    /* Add padding inside the modal */
+    max-width: 1000px;
+    /* Limit width for smaller screens */
+}
+
+/* Input field styling */
+.name-input-cert {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 17rem;
+    padding: 15px 15px;
+    margin: 15px 0;
+    /* Space above and below input */
+    font-size: 16px;
+    border: 2px solid #ccc;
+    /* Default border */
+    border-radius: 8px;
+    transition: border-color 0.3s ease-in-out;
+    /* Smooth border transition */
+}
+
+.name-input-cert:focus {
+    border-color: #00d4b1;
+    /* Violet border when focused */
+    outline: none;
+    /* Remove default outline */
+}
+
+/* Submit button styling */
+.submit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    /* Space around the button */
+    padding: 15px 40px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    /* Green background */
+    color: white;
+    /* White text */
+    border: none;
+    border-radius: 8px;
+    /* Smooth button corners */
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.submit-button:hover {
+    background-color: #efffa0;
+    color: royalblue;
+    /* Darker green on hover */
     transform: scale(1.05);
-    /* Button scale effect */
+    /* Slight zoom on hover */
+}
+
+.submit-button:active {
+    background-color: #3e8e41;
+    /* Even darker green when clicked */
+    transform: scale(1);
+    /* Return to original size */
+}
+
+.text-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 35px;
+    padding: 2rem;
+    font-weight: bold;
+}
+
+.quiz-footer {
+    position: relative;
+    bottom: 0;
+}
+
+@media screen and (min-width: 320px) {
+
+
+    /* Button styling */
+    .button {
+        font-family: 'Comic Sans MS', sans-serif;
+        margin: 10px;
+        /* Adjusted margin for mobile */
+        padding: 15px 20px;
+        /* Adjusted padding */
+        /* Increased padding for larger button */
+        font-size: 1.5rem;
+        /* Increased font size */
+        background-color: #2dfba2;
+        /* Bright yellow for restart button */
+        border: none;
+        border-radius: 15px;
+        /* More rounded corners */
+        cursor: pointer;
+        color: #08003b;
+        /* Black text for contrast */
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        /* Smooth transition */
+    }
+
+    .button:hover {
+        background-color: #25b6f9;
+        /* Darker shade on hover */
+        transform: translateY(-4px);
+        /* Lift button effect */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        /* Glow effect on hover */
+    }
+
+    .button:active {
+        transform: translateY(2px);
+        /* Button press effect */
+    }
 }
